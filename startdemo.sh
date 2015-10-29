@@ -21,7 +21,7 @@ echo "Opendaylight Controller: " $ODL
 echo "Base subnet: " $SUBNET
 
 for i in `seq 1 $NUM_NODES`; do
-  hostname="pxysfc"$i
+  hostname="sfcpxy"$i
   echo $hostname
   vagrant ssh $hostname -c "sudo -E /vagrant/infrastructure_launch.py"
 done

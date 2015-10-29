@@ -26,7 +26,7 @@ switches = [
              'dpid': '8'}
 	    ]
 
-defaultContainerImage='alagalah/odlpoc_ovs230'
+defaultContainerImage='toshirin/sfcpxy-host'
 
 #Note that tenant name and endpointGroup name come from policy_config.py
 

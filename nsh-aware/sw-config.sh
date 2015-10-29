@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-hostnum=${HOSTNAME#"pxysfc"}
+hostnum=${HOSTNAME#"sfcpxy"}
 sw="sw$hostnum"
 
 sudo ifconfig eth2 up

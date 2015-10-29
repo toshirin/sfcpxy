@@ -50,7 +50,7 @@ def launch(switches, hosts, contIP='127.0.0.1'):
                 print "Created container: %s with IP: %s. Connect using 'docker attach %s', disconnect with ctrl-p-q." % (host['name'],host['ip'],host['name'])
 
 if __name__ == "__main__" :
-    sw_index=int(socket.gethostname().split("pxysfc",1)[1])-1
+    sw_index=int(socket.gethostname().split("sfcpxy",1)[1])-1
     if sw_index in range(0,len(switches)+1):
 
        doCmd('sudo /vagrant/sw-config.sh')

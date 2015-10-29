@@ -16,12 +16,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ips = num_nodes.times.collect { |n| ip_base + "#{n+70}" }
 
   num_nodes.times do |n|
-    config.vm.define "pxysfc#{n+1}", autostart: true do |compute|
+    config.vm.define "sfcpxy#{n+1}", autostart: true do |compute|
       vm_ip = ips[n]
       vm_index = n+1
-      compute.vm.box = "gbpsfcbox-test_gbpsfc1_1437062105401_77376"
+      compute.vm.box = "sfcpxy_base"
       compute.vm.box_url = "###Your Directory Here###/sfcpxy.box"
-      compute.vm.hostname = "pxysfc#{vm_index}"
+      compute.vm.hostname = "sfcpxy#{vm_index}"
       compute.vm.network "private_network", ip: "#{vm_ip}"
       compute.vm.network "private_network", virtualbox__intnet: "net#{n}", auto_config: false
       compute.vm.network "private_network", virtualbox__intnet: "net#{n+1}", auto_config: false
