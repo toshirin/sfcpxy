@@ -19,6 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "pxysfc#{n+1}", autostart: true do |compute|
       vm_ip = ips[n]
       vm_index = n+1
+      compute.vm.box = "gbpsfcbox-test_gbpsfc1_1437062105401_77376"
       compute.vm.box_url = "###Your Directory Here###/sfcpxy.box"
       compute.vm.hostname = "pxysfc#{vm_index}"
       compute.vm.network "private_network", ip: "#{vm_ip}"
