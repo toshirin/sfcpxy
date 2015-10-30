@@ -15,7 +15,7 @@ def addHost(net, switch, name, ip, mac):
     containerID=launchContainer()
 
 def launchContainer(host,containerImage):
-    containerID= check_output(['docker','run','-d','--net=none','--name=%s'%host['name'],'-h',host['name'],'-t', '-i','--privileged=True',containerImage,'/bin/bash']) #docker run -d --net=none --name={name} -h {name} -t -i {image} /bin/bash
+    containerID= check_output(['docker','run','-d','--net=none','--name=%s'%host['name'],'-h',host['name'],'-t', '-i','-v','/vagrant:/vagrant','--privileged=True',containerImage,'/bin/bash']) #docker run -d --net=none --name={name} -h {name} -t -i {image} /bin/bash
     #print "created container:", containerID[:-1]
     return containerID[:-1] #Remove extraneous \n from output of above
 
@@ -61,12 +61,14 @@ if __name__ == "__main__" :
            print "*****************************"
            print "Configuring %s as a PXY node." % sw_name
            print "*****************************"
+           doCmd('sudo /vagrant/pxy-config.sh')
            print
        elif sw_type == 'sff':
            print "*****************************"
            print "Configuring %s as an SFF." % sw_name
            print "*****************************"
            doCmd('sudo ovs-vsctl set-manager tcp:%s:6640' % controller)
+           doCmd('sudo /vagrant/sff-config.sh')
            print
            launch([switches[sw_index]],hosts,controller)
            print "*****************************"
@@ -84,5 +86,4 @@ if __name__ == "__main__" :
            print "Configuring %s as an SF." % sw_name
            print "*****************************"
            doCmd('sudo /vagrant/sf-config.sh')
-           #addGpeTunnel(switches[sw_index]['name'])
 

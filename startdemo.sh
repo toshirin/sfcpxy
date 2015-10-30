@@ -11,6 +11,12 @@ cp $demo/infrastructure_config.py .
 if [ -f $demo/sf-config.sh ]; then
     cp $demo/sf-config.sh .
 fi
+if [ -f $demo/sff-config.sh ]; then
+    cp $demo/sff-config.sh .
+fi
+if [ -f $demo/pxy-config.sh ]; then
+    cp $demo/pxy-config.sh .
+fi
 if [ -f $demo/sw-config.sh ]; then
     cp $demo/sw-config.sh .
 fi

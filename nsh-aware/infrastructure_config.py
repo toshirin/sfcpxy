@@ -30,13 +30,13 @@ defaultContainerImage='toshirin/sfcpxy-host'
 
 #Note that tenant name and endpointGroup name come from policy_config.py
 
-hosts = [{'name': 'h35_2',
-          'mac': '00:00:00:00:35:02',
-          'ip': '10.0.35.2/24',
+hosts = [{'name': 'host1',
+          'mac': '00:00:00:00:60:60',
+          'ip': '192.168.60.60/24',
           'switch': 'sw1'},
-         {'name': 'h36_2',
-          'mac': '00:00:00:00:36:02',
-          'ip': '10.0.36.2/24',
+         {'name': 'host2',
+          'mac': '00:00:00:00:60:61',
+          'ip': '192.168.60.61/24',
           'switch': 'sw1'},
           ]
 
