@@ -17,9 +17,6 @@ fi
 if [ -f $demo/pxy-config.sh ]; then
     cp $demo/pxy-config.sh .
 fi
-if [ -f $demo/sw-config.sh ]; then
-    cp $demo/sw-config.sh .
-fi
 
 echo "Starting demo from $demo with vars:"
 echo "Number of nodes: " $NUM_NODES

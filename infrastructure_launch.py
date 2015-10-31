@@ -53,11 +53,15 @@ if __name__ == "__main__" :
     sw_index=int(socket.gethostname().split("sfcpxy",1)[1])-1
     if sw_index in range(0,len(switches)+1):
 
-       doCmd('sudo /vagrant/sw-config.sh')
        controller=os.environ.get('ODL')
        sw_type = switches[sw_index]['type']
        sw_name = switches[sw_index]['name']
-       if sw_type == 'pxy':
+       if sw_type == 'hst':
+           print "*****************************"
+           print "Configuring %s as a HST node." % sw_name
+           print "*****************************"
+           print
+       elif sw_type == 'pxy':
            print "*****************************"
            print "Configuring %s as a PXY node." % sw_name
            print "*****************************"
@@ -70,17 +74,6 @@ if __name__ == "__main__" :
            doCmd('sudo ovs-vsctl set-manager tcp:%s:6640' % controller)
            doCmd('sudo /vagrant/sff-config.sh')
            print
-           launch([switches[sw_index]],hosts,controller)
-           print "*****************************"
-           print "OVS status:"
-           print "-----------"
-           print
-           doCmd('ovs-vsctl show')
-           print
-           print "Docker containers:"
-           print "------------------"
-           doCmd('docker ps')
-           print "*****************************"
        elif sw_type == 'sf':
            print "*****************************"
            print "Configuring %s as an SF." % sw_name

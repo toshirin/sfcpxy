@@ -65,15 +65,15 @@ def get_service_functions_data():
     "service-functions": {
         "service-function": [
             {
-                "name": "firewall-72",
-                "ip-mgmt-address": "192.168.50.72",
+                "name": "firewall-73",
+                "ip-mgmt-address": "192.168.50.73",
                 "type": "service-function-type:firewall",
                 "nsh-aware": "true",
                 "sf-data-plane-locator": [
                     {
                         "name": "2",
                         "port": 6633,
-                        "ip": "192.168.50.72",
+                        "ip": "192.168.50.73",
                         "transport": "service-locator:vxlan-gpe",
                         "service-function-forwarder": "SFF1"
                     }
@@ -92,10 +92,9 @@ def get_service_function_forwarders_data():
         "service-function-forwarder": [
             {
                 "name": "SFF1",
-#                "ip-mgmt-address": "192.168.50.70",
                 "service-node": "OVSDB2",
                 "service-function-forwarder-ovs:ovs-bridge": {
-                    "bridge-name": "sw1"
+                    "bridge-name": "sw2"
                 },
                 "service-function-dictionary": [
                     {
@@ -103,7 +102,7 @@ def get_service_function_forwarders_data():
                         "type": "service-function-type:firewall",
                         "sff-sf-data-plane-locator": {
                             "port": 6633,
-                            "ip": "192.168.50.70",
+                            "ip": "192.168.50.71",
                              "transport": "service-locator:vxlan-gpe"
                         }
                     }
@@ -114,7 +113,7 @@ def get_service_function_forwarders_data():
                         "data-plane-locator": {
                             "transport": "service-locator:vxlan-gpe",
                             "port": 6633,
-                            "ip": "192.168.50.70"
+                            "ip": "192.168.50.71"
                         },
                         "service-function-forwarder-ovs:ovs-options": {
                             "remote-ip": "flow",
