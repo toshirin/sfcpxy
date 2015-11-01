@@ -2,6 +2,7 @@
 
 import socket
 import os
+import os.path
 import re
 import time
 import sys
@@ -56,6 +57,11 @@ if __name__ == "__main__" :
        controller=os.environ.get('ODL')
        sw_type = switches[sw_index]['type']
        sw_name = switches[sw_index]['name']
+
+       sw_config_path = "/vagrant/%s-config.sh" % sw_name
+       if os.path.exists(sw_config_path):
+           doCmd("sudo %s" % sw_config_path)
+
        if sw_type == 'hst':
            print "*****************************"
            print "Configuring %s as a HST node." % sw_name
