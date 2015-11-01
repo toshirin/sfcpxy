@@ -8,14 +8,9 @@ echo $demo
 
 cp $demo/infrastructure_config.py .
 
-if [ -f $demo/sf-config.sh ]; then
-    cp $demo/sf-config.sh .
-fi
-if [ -f $demo/sff-config.sh ]; then
-    cp $demo/sff-config.sh .
-fi
-if [ -f $demo/pxy-config.sh ]; then
-    cp $demo/pxy-config.sh .
+if ls $demo/*-config.sh > /dev/null 2>&1 ; then
+    cp $demo/*-config.sh . 
+    chmod 755 *-config.sh
 fi
 
 echo "Starting demo from $demo with vars:"
