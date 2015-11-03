@@ -23,14 +23,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       compute.vm.box_url = "###Your Directory Here###/sfcpxy.box"
       compute.vm.hostname = "sfcpxy#{vm_index}"
       compute.vm.network "private_network", ip: "#{vm_ip}"
-      compute.vm.network "private_network", virtualbox__intnet: "net1", ip: "192.168.60.#{n+70}"
+      compute.vm.network "private_network", ip: "192.168.60.#{n+70}"
+      compute.vm.network "private_network", ip: "192.168.70.#{n+70}"
       compute.vm.provider :virtualbox do |vb|
-        if n == 0
-		  vb.memory = 2048
-		else
+#        if n == 0
+#		  vb.memory = 2048
+#		else
 		  vb.memory = 512
-		end
-        vb.customize ["modifyvm", :id, "--ioapic", "on"]      
+#		end
+        vb.customize ["modifyvm", :id, "--ioapic", "on", "--nicpromisc2", "allow-all", "--nicpromisc3", "allow-all", "--nicpromisc4", "allow-all"]
         vb.cpus = 1
       end
     end
