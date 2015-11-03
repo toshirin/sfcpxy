@@ -58,31 +58,8 @@ if __name__ == "__main__" :
        sw_type = switches[sw_index]['type']
        sw_name = switches[sw_index]['name']
 
-       sw_config_path = "/vagrant/%s-config.sh" % sw_name
+       sw_config_path = "/vagrant/%s-config.sh" % socket.gethostname()
        if os.path.exists(sw_config_path):
            doCmd("sudo %s" % sw_config_path)
 
-       if sw_type == 'hst':
-           print "*****************************"
-           print "Configuring %s as a HST node." % sw_name
-           print "*****************************"
-           print
-       elif sw_type == 'pxy':
-           print "*****************************"
-           print "Configuring %s as a PXY node." % sw_name
-           print "*****************************"
-           doCmd('sudo /vagrant/pxy-config.sh')
-           print
-       elif sw_type == 'sff':
-           print "*****************************"
-           print "Configuring %s as an SFF." % sw_name
-           print "*****************************"
-           doCmd('sudo ovs-vsctl set-manager tcp:%s:6640' % controller)
-           doCmd('sudo /vagrant/sff-config.sh')
-           print
-       elif sw_type == 'sf':
-           print "*****************************"
-           print "Configuring %s as an SF." % sw_name
-           print "*****************************"
-           doCmd('sudo /vagrant/sf-config.sh')
 

@@ -11,6 +11,8 @@ cp $demo/infrastructure_config.py .
 if ls $demo/*-config.sh > /dev/null 2>&1 ; then
     cp $demo/*-config.sh . 
     chmod 755 *-config.sh
+    cp $demo/*-deconfig.sh . 
+    chmod 755 *-deconfig.sh
 fi
 
 echo "Starting demo from $demo with vars:"

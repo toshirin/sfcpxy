@@ -8,7 +8,7 @@ for i in `seq 1 $NUM_NODES`; do
   hostname="sfcpxy"$i
   switchname="sw"$i
   echo $hostname
-  vagrant ssh $hostname -c "sudo ovs-vsctl del-br $switchname; sudo ovs-vsctl del-manager"
+  vagrant ssh $hostname -c "sudo ovs-vsctl del-br $switchname; sudo /vagrant/$hostname-deconfig.sh"
 
 done
  
