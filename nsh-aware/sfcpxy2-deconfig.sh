@@ -4,4 +4,5 @@ set -e
 hostnum=${HOSTNAME#"sfcpxy"}
 sw="sw$hostnum"
 
-echo do $sw settings.
+sudo arp -d 192.168.50.70 
+
